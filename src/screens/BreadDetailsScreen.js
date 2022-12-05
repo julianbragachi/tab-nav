@@ -4,7 +4,7 @@ import React from 'react'
  
 
 const BreadDetailsScreen = ({ route }) => {
-  const bread = route.params.bread;
+  const bread = route.params;
   
   return (
     <View style={styles.container}>
