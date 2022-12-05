@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { useFonts } from 'expo-font';
+import ShopNavigator from './src/navigation/ShopNavigator';
+import BottomTabNavigator from './src/navigation/BottomTabNavigator';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  const [fontsLoaded] = useFonts({
+    ComfortaaLight: require('./src/assets/fonts/Comfortaa-Light.ttf'),
+    ComfortaaRegular: require('./src/assets/fonts/Comfortaa-Regular.ttf'),
+    ComfortaaMedium: require('./src/assets/fonts/Comfortaa-Medium.ttf'),
+    ComfortaaSemiBold: require('./src/assets/fonts/Comfortaa-SemiBold.ttf'),
+    ComfortaaBold: require('./src/assets/fonts/Comfortaa-Bold.ttf')
+  })
+  if(!fontsLoaded){return null}
+  return <BottomTabNavigator/>;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
